@@ -1,0 +1,28 @@
+/* This is a store database I created in Khan Academy.
+It has 15 items, and six columns */
+
+CREATE TABLE Baseball_Forever (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, type TEXT, team TEXT, price INTEGER);
+INSERT INTO Baseball_Forever VALUES (1, "MLB Official Baseball", 25, "equipment", "Yankees", 16);
+INSERT INTO Baseball_Forever VALUES (2, "Jeter Jersey", 9, "apparel", "Yankees", 58);
+INSERT INTO Baseball_Forever VALUES (3, "Ramirez Jersey", 7, "apparel", "Guardians", 58);
+INSERT INTO Baseball_Forever VALUES (4, "Colavito Bat", 4, "bat", "Indians", 42);
+INSERT INTO Baseball_Forever VALUES (5, "Catcher's Mask", 6, "equipment", "none", 118);
+INSERT INTO Baseball_Forever VALUES (6, "Mound Rosin", 17, "equipment", "Tigers", 12);
+INSERT INTO Baseball_Forever VALUES (7, "Mickey Mantle Topps Card", 3, "trading_cards", "Yankees", 2);
+INSERT INTO Baseball_Forever VALUES (8, "Jim Thome cap", 1, "apparel", "Indians", 19);
+INSERT INTO Baseball_Forever VALUES (9, "Casey Stengel Scoresheet", 1, "collectibles", "Yankees", 129);
+INSERT INTO Baseball_Forever VALUES (10, "MLB Rulebook", 45, "equipment", "none", 18);
+INSERT INTO Baseball_Forever VALUES (11, "Mariano Rivera signed ball", 1, "collectibles", "Yankees", 159);
+INSERT INTO Baseball_Forever VALUES (12, "Bubble Gum Tub", 22, "equipment", "White Sox", 24);
+INSERT INTO Baseball_Forever VALUES (13, "Official Lineup Card", 50, "equipment", "various", 10);
+INSERT INTO Baseball_Forever VALUES (14, "Batting Gloves", 17, "equipment", "Red Sox", 19);
+INSERT INTO Baseball_Forever VALUES (15, "Earl Weaver Cleats", 1, "collectibles", "Orioles", 39);
+
+--This displays the database in price order.
+SELECT * FROM Baseball_Forever ORDER BY price desc;
+
+--what is the avg price of items in the apparel section? 
+SELECT AVG(price) FROM Baseball_Forever where type='apparel'; 
+
+/* This query aggregates the quantity of items, grouped by name */
+SELECT name, SUM(quantity) FROM Baseball_Forever GROUP BY name;
